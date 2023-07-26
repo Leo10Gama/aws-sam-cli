@@ -27,6 +27,7 @@ jobs:
       - run: |
           ls
           cd ..
+          ls
           python schema/make_schema.py
           cat schema/samcli.json
           name: Generate the schema
