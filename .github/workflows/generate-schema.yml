@@ -29,7 +29,7 @@ jobs:
           cd aws-sam-cli-feat/json-schema
           diff <( cat schema/samcli.json ) <( python schema/make_schema.py; cat schema/samcli.json ) && exit 0 # exit if schema is unchanged
           echo "is_schema_changed=1" >> $GITHUB_ENV
-          git config --global user.email "action@github.com"
+          git config --global user.email "git@github.com"
           git config --global user.name "GitHub Action"
           git checkout -b update-schema
           git status
