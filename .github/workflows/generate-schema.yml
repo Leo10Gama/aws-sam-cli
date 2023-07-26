@@ -25,6 +25,7 @@ jobs:
         with:
           python-version: 3.9
       - run: |
+          make -C aws-sam-cli-develop init
           python schema/make_schema.py
           cat schema/samcli.json
           name: Generate the schema
