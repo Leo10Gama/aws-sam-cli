@@ -18,14 +18,15 @@ jobs:
         name: Checkout latest AWS SAM CLI commit
         with:
           repository: 'aws/aws-sam-cli'
-          ref: 'feat-json-schema'
-          path: 'aws-sam-cli-feat-json-schema'
+          ref: 'feat/json-schema'
+          path: 'aws-sam-cli-feat/json-schema'
       - uses: actions/setup-python@v4
         name: Install Python 3.9
         with:
           python-version: 3.9
       - run: |
           ls
+          cd aws-sam-cli-feat
           python schema/make_schema.py
           cat schema/samcli.json
           name: Generate the schema
