@@ -27,7 +27,6 @@ jobs:
       - run: |
           make -C aws-sam-cli-feat/json-schema init
           cd aws-sam-cli-feat/json-schema
-          diff <( cat schema/samcli.json ) <( python schema/make_schema.py; cat schema/samcli.json )
-          exit 0
+          diff <( cat schema/samcli.json ) <( python schema/make_schema.py; cat schema/samcli.json ) && exit 0 # exit if schema is unchanged
           name: Generate the schema
           shell: bash
