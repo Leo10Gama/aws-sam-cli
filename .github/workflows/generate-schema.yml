@@ -34,7 +34,7 @@ jobs:
           git checkout -b update-schema
           git status
           git add schema/samcli.json
-          git commit -m "chore: Update JSON schema"
+          git commit -m "chore: Update JSON schema" && exit 0
           name: Generate the schema
           shell: bash
       - name: Raise PR to update JSON schema
