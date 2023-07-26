@@ -25,8 +25,9 @@ jobs:
         with:
           python-version: 3.9
       - run: |
-          schema_dir='aws-sam-cli-feat/json-schema/schema'
-          python $schema_dir/make_schema.py
-          cat $schema_dir/samcli.json
+          repo_dir='aws-sam-cli-feat/json-schema'
+          make init
+          python $repo_dir/schema/make_schema.py
+          cat $repo_dir/schema/samcli.json
           name: Generate the schema
           shell: bash
