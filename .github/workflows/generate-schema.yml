@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
         name: Checkout latest AWS SAM CLI commit
         with:
-          repository: 'aws/aws-sam-cli'
+          repository: 'Leo10Gama/aws-sam-cli'
           ref: 'feat/json-schema'
           path: 'aws-sam-cli-feat/json-schema'
       - uses: actions/setup-python@v4
