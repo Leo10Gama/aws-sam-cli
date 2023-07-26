@@ -43,7 +43,8 @@ jobs:
         if: ${{ env.is_schema_changed == 1 }} # run only if there was a change
         run: |
           cd aws-sam-cli-feat/json-schema
-          git push --force git@github.com:Leo10Gama/aws-sam-cli.git update-schema
+          git remote add origin git@github.com:Leo10Gama/aws-sam-cli.git
+          git push --force origin update-schema
           gh pr list --repo Leo10Gama/aws-sam-cli --head update-schema --json id --jq length | grep 1 && exit 0 # exit if there is existing pr
           gh pr create --base SANDBOX-actions --head update-schema --title "chore: Update JSON schema" --body "This PR & commit are automatically created by SAM CLI repo to update the JSON schema with the latest changes." --label "pr/internal"
 
