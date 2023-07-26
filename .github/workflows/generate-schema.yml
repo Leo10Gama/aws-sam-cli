@@ -25,9 +25,7 @@ jobs:
         with:
           python-version: 3.9
       - run: |
-          ls
-          cd ..
-          ls
+          find . -name make_schema.py
           python schema/make_schema.py
           cat schema/samcli.json
           name: Generate the schema
