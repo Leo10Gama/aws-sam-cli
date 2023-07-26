@@ -28,6 +28,6 @@ jobs:
           make -C aws-sam-cli-feat/json-schema init
           cd aws-sam-cli-feat/json-schema
           python schema/make_schema.py
-          cat schema/samcli.json
+          cat schema/samcli.json && exit 0
           name: Generate the schema
           shell: bash
