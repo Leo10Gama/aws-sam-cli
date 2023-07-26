@@ -37,7 +37,7 @@ CHARS_TO_CLEAN = [
 
 
 class SchemaKeys(Enum):
-    SCHEMA_FILE_NAME = ".schema/samcli.json"
+    SCHEMA_FILE_NAME = "schema/samcli.json"
     SCHEMA_DRAFT = "http://json-schema.org/draft-04/schema#"
     TITLE = "AWS SAM CLI samconfig schema"
     ENVIRONMENT_REGEX = "^.+$"
