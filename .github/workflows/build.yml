@@ -77,13 +77,10 @@ jobs:
         name: Install Python 3.9
         with:
           python-version: 3.9
-      - run: |
-          make init
-          diff <( cat schema/samcli.json ) <( python schema/make_schema.py; cat schema/samcli.json ) && exit 0 # exit if schema is unchanged
-          echo "The generated schema differs from that in the PR. Please run 'make schema'."
-          exit 1
-          name: Generate the schema
-          shell: bash
+      - run: make init
+      - run: diff <( cat schema/samcli.json ) <( python schema/make_schema.py; cat schema/samcli.json ) && exit 0 # exit if schema is unchanged
+        name: Generate and compare the schema
+        shell: bash
 
   integration-tests:
     name: Integration Tests / ${{ matrix.os }} / ${{ matrix.python }} / ${{ matrix.tests_folder }}
