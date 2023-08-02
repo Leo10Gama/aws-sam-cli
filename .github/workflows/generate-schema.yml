@@ -3,6 +3,11 @@ name: Generate SAM CLI JSON schema
 on:
   schedule:
     - cron: 30 15 * * 1-5  # 8:30am PST Monday-Friday
+  pull_request:
+    branches:
+      - develop
+      - "feat/*"
+      - "SANDBOX-*"
   
 jobs:
   generateSchema:
