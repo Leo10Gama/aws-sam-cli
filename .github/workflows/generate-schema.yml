@@ -1,6 +1,8 @@
 name: Generate SAM CLI JSON schema
 
 on:
+  schedule:
+    - cron: 30 15 * * 1-5  # 8:30am PST Monday-Friday
   pull_request:
     branches:
       - develop
@@ -25,7 +27,10 @@ jobs:
         with:
           python-version: 3.9
       - run: |
-          python schema/make_schema.py
-          cat schema/samcli.json
+          make -C aws-sam-cli-develop init
+          cd aws-sam-cli-develop
+          diff <( cat schema/samcli.json ) <( python schema/make_schema.py; cat schema/samcli.json ) && exit 0 # exit if schema is unchanged
+          echo "The generated schema differs from that in the PR. Please run 'make schema'."
+          exit 1
           name: Generate the schema
           shell: bash
